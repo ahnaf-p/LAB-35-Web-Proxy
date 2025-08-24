@@ -19,3 +19,8 @@ Rabu 20 Agustus 2025
 
 # Kesimpulan
   Web Proxy pada MikroTik adalah fitur penting yang dapat dimanfaatkan untuk caching data, menghemat bandwidth, serta melakukan filtering situs berbasis HTTP. Namun, perlu dicatat bahwa proxy MikroTik hanya bekerja pada protokol HTTP (port 80), sementara HTTPS tidak bisa diproses langsung tanpa SSL interception.  
+
+# Sumber
+https://www.youtube.com/watch?v=InuSUDw-_dY  
+https://citraweb.com/artikel/123/  
+https://blog.dnetprovider.id/2018/11/02/tutorial-mikrotik-membuat-web-proxy-pada-mikrotik/  
