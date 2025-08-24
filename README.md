@@ -5,17 +5,17 @@ Rabu 20 Agustus 2025
   Secara sederhana, proxy bisa diartikan sebagai server atau program yang bertugas mewakili komputer lain saat meminta konten dari internet maupun intranet. Jadi, bisa dibilang proxy ini semacam perantara sekaligus pelindung ketika kita mengakses jaringan internet. Jenis proxy sendiri ada cukup banyak, misalnya SSL Proxy, Web Proxy, Intercepting Proxy, Reverse Proxy, dan lain-lain. Setiap jenis punya fungsi masing-masing sesuai kebutuhan. Nah, kali ini kita akan bahas salah satu proxy yang sudah tersedia sebagai fitur bawaan di RouterOS MikroTik, yaitu Web Proxy.  
 
 # Konfigurasi Web Proxy
-  1. Aktifkan dulu service dari web-proxy pada MikroTik dengan pengaturan pad menu IP > Web Proxy.
-  2. Checklist Enable dan tentukan port berapa proxy bekerja, defaultnya 8080.
-  ![](IMAGES/)
-  3. Sampai sini, web proxy pada Mikrotik sudah aktif sebagai Regular HTTP Proxy. Atau maksudnya jika PC Client ingin mengunakan service proxy ini, maka harus disetting manual pada web browser masing-masing client dengan menunjuk ip mikrotik port 8080.
-  4. Agar tidak perlu setting pada browser satu-satu, ubah web proxy Mikrotik sebagai Transparent proxy. Caranya mengunakan NAT untuk membelokan semua traffic browsing HTTP (tcp 80) yang berasal dari client ke fitur internal web proxy yang sudah di aktifkan sebelumnya. Untuk membuatnya, masuk ke menu **IP > FIREWALL>NAT>ADD**  
-  ![](IMAGES/)    
-  5. Selanjutnya karena semua traffic HTTP dari client sudah masuk ke web proxy, maka bisa diakukan manajemen. Salah satunya adalah melakukan blocking akses client we website tertentu.  
-  6. Untuk melakukan block akses client ke website tertentu dapat dilakukan pada menu **Webproxy > Access**
-  ![](IMAGES/)
-  7. Tambahkan rule web-proxy access baru. Dalam contoh ini, client tidak diperbolehkan akses ke **store.steampowered.com**, isi website yang akan di block pada parameter **dst-host** dengan **action=deny**
-  ![](IMAGES/)
-*Jika  diperhatikan, penulisan dst-host tidak menggunakan alamat website lengkap akan tetapi menggunakan tanda bintang (*) *di depan dan belakang nama/alamat website. Tanda * dimaksudkan sebagai wildcard untuk menggantikan semua karakter. Dengan ditambahkan wildcard, traffic client yang menuju ke website yang URL-nya terdapat kata "playboy" akan diblock.*
-  8. Sekarang coba kita browsing ke **store.steampowered.com**
-  ![](IMAGES/)  
+  1. Lakukan konfigurasi dasar sampai router dan client bisa terhubung ke internet.  
+  ![](IMAGES/webproxy.png)  
+  2. Langkah berikutnya adalah mengaktifkan fitur proxy bawaan RouterOS. Secara default, fitur ini dalam keadaan nonaktif. Untuk mengaktifkannya bisa pergi ke **IP > WEB PROXY**  
+  ![](IMAGES/anonim.png)  
+  3. Supaya lebih praktis, administrator biasanya mengkonfigurasi transparent proxy. Dengan metode ini, client tidak perlu lagi mengubah pengaturan di browser.  
+  ![](IMAGES/firenat.png)
+  ![](IMAGES/firewallnat.png)  
+  5. Salah satu keunggulan Web Proxy adalah kemampuannya menyimpan (cache) file yang sering diakses, sehingga akses berikutnya akan lebih cepat. Untuk mengatur cache:  
+  ![](IMAGES/webb.png)  
+  6. Selain caching, proxy juga sering dipakai untuk membatasi akses ke situs tertentu. Misalnya, jika ingin memblokir akses ke Facebook dan TikTok, di **ip > web proxy > access**.
+  ![](IMAGES/access.png)
+
+# Kesimpulan
+  Web Proxy pada MikroTik adalah fitur penting yang dapat dimanfaatkan untuk caching data, menghemat bandwidth, serta melakukan filtering situs berbasis HTTP. Namun, perlu dicatat bahwa proxy MikroTik hanya bekerja pada protokol HTTP (port 80), sementara HTTPS tidak bisa diproses langsung tanpa SSL interception.  
