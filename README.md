@@ -14,9 +14,9 @@ Rabu 20 Agustus 2025
   ![](IMAGES/firewallnat.png)  
   5. Salah satu keunggulan Web Proxy adalah kemampuannya menyimpan (cache) file yang sering diakses, sehingga akses berikutnya akan lebih cepat. Untuk mengatur cache:  
   ![](IMAGES/webb.png)  
-  6. Selain caching, proxy juga sering dipakai untuk membatasi akses ke situs tertentu. Misalnya, jika ingin memblokir akses ke Facebook dan TikTok, di **ip > web proxy > access**.
-  ![](IMAGES/access.png)
-
+  6. Selain caching, proxy juga sering dipakai untuk membatasi akses ke situs tertentu. Misalnya, jika ingin memblokir akses ke Facebook dan TikTok, di **ip > web proxy > access**.  
+  ![](IMAGES/access.png)  
+  
 # Kesimpulan
   Web Proxy pada MikroTik adalah fitur penting yang dapat dimanfaatkan untuk caching data, menghemat bandwidth, serta melakukan filtering situs berbasis HTTP. Namun, perlu dicatat bahwa proxy MikroTik hanya bekerja pada protokol HTTP (port 80), sementara HTTPS tidak bisa diproses langsung tanpa SSL interception.  
 
